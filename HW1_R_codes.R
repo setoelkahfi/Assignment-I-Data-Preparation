@@ -153,14 +153,15 @@ apply(adult_db_num_std, 2, sd)
 
 # ******** YOUR CODE FOR GETTING PRINCIPAL COMPONENTS GOES HERE ******** #
 # HINT: use prcomp()
-pr.out <- # *** YOUR CODE HERE prcomp() *** #
+pr.out <- prcomp(adult_db_num_std[,c("age", "fnlwgt", "education_num", "capital_gain", "capital_loss", "hours_per_week")], scale = TRUE, center = TRUE)
 
   
 adult_db_pca <- pr.out$x
 
 # ******** YOUR CODE TO PLOT FOR FIRST TWO PCs ****** #
 # plot(), legend()
-
+colors = ifelse(class_cat == ">50K", "red", "blue")
+plot(adult_db_pca[,1:2], col = colors, pch = 20, main = "First two Principal Components")
 
       
       
