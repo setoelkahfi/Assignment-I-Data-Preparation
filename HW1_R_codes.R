@@ -1,4 +1,3 @@
-
 # *********************************************
 # DAMI Preprocessing Exercise R file
 # Complete the codes to complete the assignment
@@ -11,9 +10,12 @@
 # Missing values are represented as "?" in data file, make sure that R read them as missing values (NAs)
 # ------------------------------------------------------------------------------------------------------ #
 # use read.table(), type ?read.table for help
-adult_db <- # ****** YOUR CODE GOES HERE *******
-
-
+adult_db <- read.table(file = "adult.data",
+                       header = FALSE,
+                       sep = ",",
+                       na.strings = "?",
+                       strip.white = TRUE,
+                       stringsAsFactors = FALSE)
 
 # Assign attribute names (column names) to the data we just imported
 # Attribute names are in separate file "adult.names", scroll down to the bottom of this file
@@ -46,16 +48,16 @@ colnames(adult_db) = c("age",
 
 library(Amelia)
 # plot missing values in data
-# ****** YOUR CODE HERE ******* #
+missmap(adult_db, y.cex = 0.5, x.cex = 0.8, rank.order = FALSE, legend = FALSE, margins = c(7,2))
 # HINT: use missmap()
 
 # count number of missing values in all attributes
-# ****** YOUR CODE HERE *****
+apply(adult_db, 2, function(x) {sum(is.na(x))})
 
 
 
 # Delete records (rows) with any missing value
-adult_db_nomiss <- # ****** YOUR CODE HERE *******
+adult_db_nomiss <- na.omit(adult_db)
 
 
 
