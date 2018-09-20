@@ -137,7 +137,8 @@ class_cat <- adult_db_lim[,c("class")]
 
 # Standardize numeric attributes in "adult_db_numeric" dataset.
 # mean = 0 and sd = 1 for all numeric attributes
-adult_db_num_std <- # *** YOUR CODE HERE *** #
+
+adult_db_num_std <- scale(adult_db_numeric)
   
 
 # we can check the mean and standard deviation of the standardized data
