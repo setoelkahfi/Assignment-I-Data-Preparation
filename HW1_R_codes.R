@@ -102,7 +102,19 @@ legend(x = 60,
 
 # 3b. Plot barchart for categorical attribute "relationship", 
 # show legend, attribute name and main title for the plot.
-# ******* YOUR CODE FOR BAR CHART GOES HERE ******* #
+par(mar=c(6,6,2,2), las=2)
+barplot(table(adult_db_lim$relationship),
+        col = c("black","red","green","blue","cyan","magenta"),
+        main = "Relationship of adults",
+        xlim = c(0,7),
+        names.arg = c("Husband","Not-in-family","Other-relative","Own-child","Unmarried","Wife"),
+        cex.names = 1)
+legend(x = 4,
+       y = 600,
+       legend = c("Husband","Not-in-family","Other-relative","Own-child","Unmarried","Wife"),
+       col = c("black","red","green","blue","cyan","magenta"),
+       pch = 20,
+       cex = 1)
 # HINT: use barplot()
 # ************************************************* #
 
