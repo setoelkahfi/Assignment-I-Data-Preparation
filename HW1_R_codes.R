@@ -77,7 +77,25 @@ row.names(adult_db_lim) <- NULL
 # show main title and attribute name on the plot.
 # --------------------------------------------------------------------------------------------------------
 
-# ******* YOUR CODE FOR HISTOGRAM PLOT GOES HERE ******** #
+hist(adult_db_lim$age[which(adult_db_lim$class=="<=50K")],
+     breaks = 100,
+     xlab="Age",
+     ylab=" ",
+     col="red",
+     main="Age of adults")
+hist(adult_db_lim$age[which(adult_db_lim$class==">50K")],
+     breaks = 50,
+     xlab="Age",
+     ylab=" ",
+     col="blue",
+     main="Age of adults",
+     add=TRUE)
+legend(x = 60,
+       y = 30,
+       legend = c(">50K", "<=50K"),
+       col = c("blue", "red"),
+       pch = 20,
+       cex = 0.75)
 # HINT: use hist()
 
 # ******************************************************* #
