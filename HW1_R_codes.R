@@ -121,8 +121,9 @@ legend(x = 4,
 
 # 3c. Plot a boxplot for attribute "Age" for groups with earning "<=50K", ">50K"
 # ------------------------------------------------------------------------------
-
-# ****** YOUR CODE GOES HERE ***** #
+par(mar=c(6,6,2,2), las=2)
+boxplot(age ~ class, data = adult_db_lim, pch=20, col="red", main = "Age of adults", names = c("Healthy", "Diseased"))
+boxplot(age ~ class, data = adult_db_lim, pch=20, col="red", main = "Age of adults")
 # HINT: use boxplot()
 
 
