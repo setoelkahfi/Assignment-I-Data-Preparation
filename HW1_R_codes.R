@@ -158,7 +158,6 @@ pr.out <- prcomp(adult_db_num_std[,c("age", "fnlwgt", "education_num", "capital_
   
 adult_db_pca <- pr.out$x
 
-# ******** YOUR CODE TO PLOT FOR FIRST TWO PCs ****** #
 # plot(), legend()
 colors = ifelse(class_cat == ">50K", "red", "blue")
 plot(adult_db_pca[,1:2], col = colors, pch = 20, main = "First two Principal Components")
@@ -170,9 +169,14 @@ plot(adult_db_pca[,1:2], col = colors, pch = 20, main = "First two Principal Com
 # write a code to show proportion of variance explained by each Principal Component
 # Standard deviation are stored as "sdev"
 
-# *** YOUR CODE GOES HERE *** #
 # plot(), legend()
+pr.var <- (pr.out$sdev)^2
+pve <- pr.var/sum(pr.var)
 
+par(mfrow = c(1,2), oma = c(2,4,2,4))
+plot(pve, xlab = "Principal Components", ylab = "Variance", type = "b", ylim = c(0,1), col = "red")
+plot(cumsum(pve), xlab = "Principal Components", ylab = "Cumulative variance", type = "b", ylim = c(0,1), col = "red")
+mtext("Proportion of variance explained", outer = TRUE)
 
 # 5c. write answer for this as a comment using #
 # ------------------------------------------------------------------------------
