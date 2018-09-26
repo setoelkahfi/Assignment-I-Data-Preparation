@@ -181,4 +181,4 @@ mtext("Proportion of variance explained", outer = TRUE)
 # 5c. write answer for this as a comment using #
 # ------------------------------------------------------------------------------
 # How many principal components are needed to explain 50% and 90% of variance respectively
-# Answer:
+# Answer: 3 if more than 50% and 6 if more than 90%
